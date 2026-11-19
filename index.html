@@ -2,22 +2,90 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ESCOVON</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ESCOVON</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial;background:#f2f8f3;color:#183126;padding-bottom:80px}
+header{background:#168b45;color:white;padding:28px 20px;border-radius:0 0 22px 22px}
+header h1{margin:0;font-size:30px}
+header p{margin-bottom:0}
+main{padding:20px 15px;max-width:700px;margin:auto}
+h2{color:#168b45}
+.card{background:white;padding:18px;margin:14px 0;border-radius:15px;box-shadow:0 3px 12px #00000010}
+.balance{font-size:28px;color:#168b45;font-weight:bold}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tile{background:white;padding:16px;border-radius:14px;text-align:center}
+.tile b{display:block;margin-top:8px}
+nav{position:fixed;bottom:0;left:0;right:0;background:white;display:flex;justify-content:space-around;padding:10px 2px;border-top:1px solid #ddd}
+nav button{border:0;background:white;color:#555;font-size:12px;padding:5px}
+nav button span{display:block;font-size:22px;margin-bottom:4px}
+nav button.active{color:#168b45;font-weight:bold}
+.panel{display:none}
+.panel.active{display:block}
+button.action{background:#168b45;color:white;border:0;padding:12px 18px;border-radius:9px}
+</style>
 </head>
 <body>
-  <header>
-    <h1>ESCOVON</h1>
-    <p>Bienvenue sur votre plateforme</p>
-  </header>
-
-  <main>
-    <h2>Construisons ensemble l'avenir !</h2>
-    <p>Votre espace pour les missions, les ventes et les formations.</p>
-  </main>
-
-  <script src="app.js"></script>
+<header>
+<h1>ESCOVON</h1>
+<p>Construisons ensemble l'avenir !</p>
+</header>
+<main>
+<section id="accueil" class="panel active">
+<h2>Bienvenue sur ESCOVON</h2>
+<p>Ton espace pour apprendre, participer et développer tes activités.</p>
+<div class="card">
+<small>Mon portefeuille</small>
+<div class="balance">0 FCFA</div>
+<small>Solde de démonstration</small>
+</div>
+<h3>Découvre nos services</h3>
+<div class="grid">
+<div class="tile">🎯<b>Missions</b></div>
+<div class="tile">🎬<b>Vidéos</b></div>
+<div class="tile">👥<b>Parrainage</b></div>
+<div class="tile">💰<b>Portefeuille</b></div>
+</div>
+</section>
+<section id="missions" class="panel">
+<h2>Mes missions</h2>
+<div class="card">🎯 Découvrir ESCOVON<p>Explore la plateforme.</p></div>
+<div class="card">📝 Compléter mon profil<p>Prépare ton espace membre.</p></div>
+<p>Les missions présentées sont des exemples. Aucune récompense réelle n'est encore activée.</p>
+</section>
+<section id="videos" class="panel">
+<h2>Vidéos</h2>
+<div class="card">🎬 Espace vidéos<p>Les vidéos partenaires seront affichées ici.</p></div>
+</section>
+<section id="parrainage" class="panel">
+<h2>Parrainage</h2>
+<div class="card">👥 Invite tes amis<p>Ton espace de parrainage sera disponible après la création des comptes membres.</p></div>
+</section>
+<section id="portefeuille" class="panel">
+<h2>Mon portefeuille</h2>
+<div class="card">Solde de démonstration<div class="balance">0 FCFA</div><p>Les paiements et retraits réels ne sont pas encore connectés.</p></div>
+</section>
+</main>
+<nav>
+<button class="active" data-page="accueil"><span>🏠</span>Accueil</button>
+<button data-page="missions"><span>🎯</span>Missions</button>
+<button data-page="videos"><span>🎬</span>Vidéos</button>
+<button data-page="parrainage"><span>👥</span>Parrainage</button>
+<button data-page="portefeuille"><span>💰</span>Portefeuille</button>
+</nav>
+<script>
+document.querySelectorAll("nav button").forEach(function(btn){
+btn.addEventListener("click",function(){
+document.querySelectorAll(".panel").forEach(p=>p.classList.remove("active"));
+document.querySelectorAll("nav button").forEach(b=>b.classList.remove("active"));
+document.getElementById(btn.dataset.page).classList.add("active");
+btn.classList.add("active");
+window.scrollTo(0,0);
+});
+});
+</script>
 </body>
 </html>
+
