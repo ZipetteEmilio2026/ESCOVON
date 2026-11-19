@@ -7,7 +7,7 @@
 <title>ESCOVON</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial;background:#f2f8f3;color:#183126;padding-bottom:90px}
+body{margin:0;font-family:Arial;background:#f2f8f3;color:#183126;padding-bottom:100px}
 header{background:#168b45;color:white;padding:28px 20px;border-radius:0 0 22px 22px}
 header h1{margin:0;font-size:30px}
 header p{margin-bottom:0}
@@ -18,9 +18,41 @@ h2{color:#168b45}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .tile{background:white;padding:16px;border-radius:14px;text-align:center}
 .tile b{display:block;margin-top:8px}
-nav{position:fixed;bottom:0;left:0;right:0;background:white;display:flex;justify-content:flex-start;gap:8px;padding:10px 8px;border-top:1px solid #ddd;overflow-x:auto}
-nav button{border:0;background:white;color:#555;font-size:12px;padding:5px;flex:0 0 auto;min-width:65px}
-nav button span{display:block;font-size:22px;margin-bottom:4px}
+
+/* MENU INFERIEUR : 7 RUBRIQUES */
+nav{
+position:fixed;
+bottom:0;
+left:0;
+right:0;
+background:white;
+display:grid;
+grid-template-columns:repeat(7,minmax(0,1fr));
+gap:0;
+padding:8px 2px;
+border-top:1px solid #ddd;
+z-index:1000;
+}
+
+nav button{
+border:0;
+background:white;
+color:#555;
+font-size:9px;
+padding:5px 1px;
+min-width:0;
+width:100%;
+white-space:normal;
+overflow-wrap:anywhere;
+text-align:center;
+}
+
+nav button span{
+display:block;
+font-size:18px;
+margin-bottom:4px;
+}
+
 nav button.active{color:#168b45;font-weight:bold}
 .panel{display:none}
 .panel.active{display:block}
@@ -144,5 +176,6 @@ window.scrollTo(0,0);
 
 </body>
 </html>
+
 
 
