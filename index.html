@@ -7,7 +7,7 @@
 <title>ESCOVON</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial;background:#f2f8f3;color:#183126;padding-bottom:80px}
+body{margin:0;font-family:Arial;background:#f2f8f3;color:#183126;padding-bottom:90px}
 header{background:#168b45;color:white;padding:28px 20px;border-radius:0 0 22px 22px}
 header h1{margin:0;font-size:30px}
 header p{margin-bottom:0}
@@ -18,8 +18,8 @@ h2{color:#168b45}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .tile{background:white;padding:16px;border-radius:14px;text-align:center}
 .tile b{display:block;margin-top:8px}
-nav{position:fixed;bottom:0;left:0;right:0;background:white;display:flex;justify-content:space-around;padding:10px 2px;border-top:1px solid #ddd}
-nav button{border:0;background:white;color:#555;font-size:12px;padding:5px}
+nav{position:fixed;bottom:0;left:0;right:0;background:white;display:flex;justify-content:flex-start;gap:8px;padding:10px 8px;border-top:1px solid #ddd;overflow-x:auto}
+nav button{border:0;background:white;color:#555;font-size:12px;padding:5px;flex:0 0 auto;min-width:65px}
 nav button span{display:block;font-size:22px;margin-bottom:4px}
 nav button.active{color:#168b45;font-weight:bold}
 .panel{display:none}
@@ -28,11 +28,14 @@ button.action{background:#168b45;color:white;border:0;padding:12px 18px;border-r
 </style>
 </head>
 <body>
+
 <header>
 <h1>ESCOVON</h1>
 <p>Construisons ensemble l'avenir !</p>
 </header>
+
 <main>
+
 <section id="accueil" class="panel active">
 <h2>Bienvenue sur ESCOVON</h2>
 <p>Ton espace pour apprendre, participer et développer tes activités.</p>
@@ -47,34 +50,86 @@ button.action{background:#168b45;color:white;border:0;padding:12px 18px;border-r
 <div class="tile">🎬<b>Vidéos</b></div>
 <div class="tile">👥<b>Parrainage</b></div>
 <div class="tile">💰<b>Portefeuille</b></div>
+<div class="tile">🛍️<b>ESCO VENTE</b></div>
+<div class="tile">📚<b>ESCO FORMATION</b></div>
 </div>
 </section>
+
 <section id="missions" class="panel">
 <h2>Mes missions</h2>
 <div class="card">🎯 Découvrir ESCOVON<p>Explore la plateforme.</p></div>
 <div class="card">📝 Compléter mon profil<p>Prépare ton espace membre.</p></div>
 <p>Les missions présentées sont des exemples. Aucune récompense réelle n'est encore activée.</p>
 </section>
+
 <section id="videos" class="panel">
 <h2>Vidéos</h2>
 <div class="card">🎬 Espace vidéos<p>Les vidéos partenaires seront affichées ici.</p></div>
 </section>
+
 <section id="parrainage" class="panel">
 <h2>Parrainage</h2>
 <div class="card">👥 Invite tes amis<p>Ton espace de parrainage sera disponible après la création des comptes membres.</p></div>
 </section>
+
 <section id="portefeuille" class="panel">
 <h2>Mon portefeuille</h2>
-<div class="card">Solde de démonstration<div class="balance">0 FCFA</div><p>Les paiements et retraits réels ne sont pas encore connectés.</p></div>
+<div class="card">
+Solde de démonstration
+<div class="balance">0 FCFA</div>
+<p>Les paiements et retraits réels ne sont pas encore connectés.</p>
+</div>
 </section>
+
+<section id="ventes" class="panel">
+<h2>ESCO VENTE</h2>
+<div class="card">
+<h3>🛍️ Espace ventes</h3>
+<p>Bienvenue dans la boutique ESCOVON !</p>
+<p>Tu pourras présenter et vendre tes produits et tes services.</p>
+<p>Les commandes et paiements réels ne sont pas encore activés.</p>
+</div>
+<div class="card">
+<h3>Que peux-tu vendre ?</h3>
+<p>👕 Vêtements et chaussures</p>
+<p>📱 Téléphones et accessoires</p>
+<p>💄 Cosmétiques</p>
+<p>💻 Matériel électronique</p>
+<p>🏠 Articles pour la maison</p>
+<p>🛠️ Services professionnels</p>
+</div>
+</section>
+
+<section id="formations" class="panel">
+<h2>ESCO FORMATION</h2>
+<div class="card">
+<h3>📚 Espace formations</h3>
+<p>Partage tes connaissances et développe tes compétences.</p>
+<p>Tu pourras publier et vendre tes propres formations.</p>
+<p>Les cours et achats réels ne sont pas encore activés.</p>
+</div>
+<div class="card">
+<h3>Nos formations</h3>
+<p>🎥 Formations vidéo</p>
+<p>📖 Cours et documents</p>
+<p>🎓 Formations professionnelles</p>
+<p>📝 Examens et questionnaires</p>
+<p>🔴 Cours en direct</p>
+</div>
+</section>
+
 </main>
+
 <nav>
 <button class="active" data-page="accueil"><span>🏠</span>Accueil</button>
 <button data-page="missions"><span>🎯</span>Missions</button>
 <button data-page="videos"><span>🎬</span>Vidéos</button>
 <button data-page="parrainage"><span>👥</span>Parrainage</button>
 <button data-page="portefeuille"><span>💰</span>Portefeuille</button>
+<button data-page="ventes"><span>🛍️</span>Ventes</button>
+<button data-page="formations"><span>📚</span>Formations</button>
 </nav>
+
 <script>
 document.querySelectorAll("nav button").forEach(function(btn){
 btn.addEventListener("click",function(){
@@ -86,6 +141,8 @@ window.scrollTo(0,0);
 });
 });
 </script>
+
 </body>
 </html>
+
 
