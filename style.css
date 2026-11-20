@@ -1,5 +1,4 @@
 
-
 * {
   box-sizing: border-box;
 }
@@ -132,6 +131,7 @@ button.secondary {
   border-radius: 9px;
   font-weight: bold;
   cursor: pointer;
+  margin-top: 12px;
 }
 
 .form-group {
@@ -150,7 +150,7 @@ input {
   border: 1px solid #cbd8ce;
   border-radius: 9px;
   font-size: 16px;
-  background: #fff;
+  background: white;
 }
 
 .note {
@@ -171,13 +171,6 @@ input {
 .error {
   background: #fff0ef;
   color: #9b2d25;
-}
-
-.actions {
-  display: flex;
-  gap: 9px;
-  flex-wrap: wrap;
-  margin-top: 14px;
 }
 
 @media (max-width: 420px) {
