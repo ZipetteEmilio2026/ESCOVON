@@ -1,3 +1,5 @@
+
+
 * {
   box-sizing: border-box;
 }
@@ -5,34 +7,189 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #f4f8f4;
-  color: #222;
+  background: #f2f8f3;
+  color: #183126;
+  padding-bottom: 100px;
 }
 
 header {
   background: #168b45;
   color: white;
-  text-align: center;
-  padding: 30px 15px;
+  padding: 24px 20px;
+  border-radius: 0 0 22px 22px;
 }
 
 header h1 {
-  font-size: 32px;
   margin: 0;
+  font-size: 30px;
 }
 
 header p {
-  font-size: 16px;
+  margin-bottom: 0;
 }
 
 main {
-  background: white;
-  margin: 20px;
-  padding: 25px;
-  border-radius: 12px;
-  text-align: center;
+  padding: 18px 15px;
+  max-width: 700px;
+  margin: auto;
 }
 
 h2 {
   color: #168b45;
+}
+
+.card {
+  background: white;
+  padding: 18px;
+  margin: 14px 0;
+  border-radius: 15px;
+  box-shadow: 0 3px 12px #00000010;
+}
+
+.balance {
+  font-size: 28px;
+  color: #168b45;
+  font-weight: bold;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.tile {
+  background: white;
+  padding: 16px;
+  border-radius: 14px;
+  text-align: center;
+}
+
+.tile b {
+  display: block;
+  margin-top: 8px;
+}
+
+nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  padding: 8px 2px;
+  border-top: 1px solid #ddd;
+  z-index: 1000;
+}
+
+nav button {
+  border: 0;
+  background: white;
+  color: #555;
+  font-size: 9px;
+  padding: 5px 1px;
+  min-width: 0;
+  width: 100%;
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+
+nav button span {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+nav button.active {
+  color: #168b45;
+  font-weight: bold;
+}
+
+.panel {
+  display: none;
+}
+
+.panel.active {
+  display: block;
+}
+
+button.action {
+  background: #168b45;
+  color: white;
+  border: 0;
+  padding: 12px 18px;
+  border-radius: 9px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button.secondary {
+  background: white;
+  color: #168b45;
+  border: 1px solid #168b45;
+  padding: 11px 16px;
+  border-radius: 9px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.form-group {
+  margin: 13px 0;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+input {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #cbd8ce;
+  border-radius: 9px;
+  font-size: 16px;
+  background: #fff;
+}
+
+.note {
+  font-size: 13px;
+  color: #617267;
+  line-height: 1.5;
+}
+
+.notice {
+  padding: 12px;
+  border-radius: 9px;
+  background: #edf7ef;
+  color: #245b37;
+  margin: 12px 0;
+  line-height: 1.5;
+}
+
+.error {
+  background: #fff0ef;
+  color: #9b2d25;
+}
+
+.actions {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+@media (max-width: 420px) {
+  header h1 {
+    font-size: 26px;
+  }
+
+  nav button {
+    font-size: 8px;
+  }
+
+  nav button span {
+    font-size: 16px;
+  }
 }
