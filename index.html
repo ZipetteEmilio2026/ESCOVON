@@ -1,9 +1,14 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ESCOVON</title>
+<title>ESCOVON - Plateforme</title>
+
+<link rel="stylesheet" href="style.css">
+<script src="app.js" defer></script>
+
 <style>
 *{box-sizing:border-box}
 body{margin:0;font-family:Arial,sans-serif;background:#f2f8f3;color:#183126;padding-bottom:100px}
@@ -17,8 +22,8 @@ h2{color:#168b45}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .tile{background:white;padding:16px;border-radius:14px;text-align:center}
 .tile b{display:block;margin-top:8px}
-nav{position:fixed;bottom:0;left:0;right:0;background:white;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:0;padding:8px 2px;border-top:1px solid #ddd;z-index:1000}
-nav button{border:0;background:white;color:#555;font-size:9px;padding:5px 1px;min-width:0;width:100%;white-space:normal;overflow-wrap:anywhere;text-align:center}
+nav{position:fixed;bottom:0;left:0;right:0;background:white;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));padding:8px 2px;border-top:1px solid #ddd;z-index:1000}
+nav button{border:0;background:white;color:#555;font-size:9px;padding:5px 1px;min-width:0;width:100%;overflow-wrap:anywhere;text-align:center}
 nav button span{display:block;font-size:18px;margin-bottom:4px}
 nav button.active{color:#168b45;font-weight:bold}
 .panel{display:none}
@@ -34,19 +39,27 @@ input{width:100%;padding:13px;border:1px solid #cbd8ce;border-radius:9px;font-si
 .actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}
 </style>
 </head>
+
 <body>
+
 <header>
 <h1>ESCOVON</h1>
 <p>Construisons ensemble l'avenir !</p>
 </header>
+
 <main>
+
 <section id="accueil" class="panel active">
 <h2>Bienvenue sur ESCOVON</h2>
 <p>Ton espace pour apprendre, participer et développer tes activités.</p>
+
 <div class="card">
-<small>Mon portefeuille</small><div class="balance">0 FCFA</div>
+<small>Mon portefeuille</small>
+<div class="balance">0 FCFA</div>
 <small>Solde de démonstration</small>
+<p>Ma commission : <strong class="commission">0 FCFA</strong></p>
 </div>
+
 <div class="card">
 <h3>Rejoindre ESCOVON</h3>
 <p>Crée ton compte ou connecte-toi à ton espace membre.</p>
@@ -55,11 +68,15 @@ input{width:100%;padding:13px;border:1px solid #cbd8ce;border-radius:9px;font-si
 <button class="secondary" onclick="showPage('connexion')">Se connecter</button>
 </div>
 </div>
+
 <h3>Découvre nos services</h3>
 <div class="grid">
-<div class="tile">🎯<b>Missions</b></div><div class="tile">🎬<b>Vidéos</b></div>
-<div class="tile">👥<b>Parrainage</b></div><div class="tile">💰<b>Portefeuille</b></div>
-<div class="tile">🛍️<b>ESCO VENTE</b></div><div class="tile">📚<b>ESCO FORMATION</b></div>
+<div class="tile">🎯<b>Missions</b></div>
+<div class="tile">🎬<b>Vidéos</b></div>
+<div class="tile">👥<b>Parrainage</b></div>
+<div class="tile">💰<b>Portefeuille</b></div>
+<div class="tile">🛍️<b>ESCO VENTE</b></div>
+<div class="tile">📚<b>ESCO FORMATION</b></div>
 </div>
 </section>
 
@@ -67,18 +84,49 @@ input{width:100%;padding:13px;border:1px solid #cbd8ce;border-radius:9px;font-si
 <h2>Créer mon compte</h2>
 <div class="card">
 <p>Renseigne tes informations pour préparer ton inscription.</p>
+
 <form id="registerForm">
-<div class="form-group"><label for="nom">Nom</label><input id="nom" name="nom" autocomplete="family-name" required></div>
-<div class="form-group"><label for="prenom">Prénom</label><input id="prenom" name="prenom" autocomplete="given-name" required></div>
-<div class="form-group"><label for="telephone">Numéro de téléphone</label><input id="telephone" name="telephone" type="tel" placeholder="+225 07 00 00 00 00" autocomplete="tel" required></div>
-<div class="form-group"><label for="email">Adresse e-mail</label><input id="email" name="email" type="email" placeholder="exemple@email.com" autocomplete="email" required></div>
-<div class="form-group"><label for="motdepasse">Mot de passe</label><input id="motdepasse" name="motdepasse" type="password" minlength="8" autocomplete="new-password" required><p class="note">8 caractères minimum.</p></div>
-<div class="form-group"><label for="confirmation">Confirmer le mot de passe</label><input id="confirmation" name="confirmation" type="password" minlength="8" autocomplete="new-password" required></div>
+<div class="form-group">
+<label for="nom">Nom</label>
+<input id="nom" name="nom" autocomplete="family-name" required>
+</div>
+
+<div class="form-group">
+<label for="prenom">Prénom</label>
+<input id="prenom" name="prenom" autocomplete="given-name" required>
+</div>
+
+<div class="form-group">
+<label for="telephone">Numéro de téléphone</label>
+<input id="telephone" name="telephone" type="tel" placeholder="+225 07 00 00 00 00" autocomplete="tel" required>
+</div>
+
+<div class="form-group">
+<label for="email">Adresse e-mail</label>
+<input id="email" name="email" type="email" placeholder="exemple@email.com" autocomplete="email" required>
+</div>
+
+<div class="form-group">
+<label for="motdepasse">Mot de passe</label>
+<input id="motdepasse" name="motdepasse" type="password" minlength="8" autocomplete="new-password" required>
+<p class="note">8 caractères minimum.</p>
+</div>
+
+<div class="form-group">
+<label for="confirmation">Confirmer le mot de passe</label>
+<input id="confirmation" name="confirmation" type="password" minlength="8" autocomplete="new-password" required>
+</div>
+
 <button class="action" type="submit">Préparer mon inscription</button>
 </form>
+
 <div id="registerMessage" aria-live="polite"></div>
-<p class="note">Cette page est actuellement une démonstration. Elle ne crée pas encore de vrai compte, n'envoie aucun code SMS ou e-mail et ne conserve pas ton mot de passe.</p>
-<div class="actions"><button class="secondary" onclick="showPage('connexion')">J'ai déjà un compte</button></div>
+
+<p class="note">Cette page est actuellement une démonstration. Elle ne crée pas encore de vrai compte et ne conserve pas ton mot de passe.</p>
+
+<div class="actions">
+<button class="secondary" onclick="showPage('connexion')">J'ai déjà un compte</button>
+</div>
 </div>
 </section>
 
@@ -86,24 +134,95 @@ input{width:100%;padding:13px;border:1px solid #cbd8ce;border-radius:9px;font-si
 <h2>Se connecter</h2>
 <div class="card">
 <p>Tu pourras utiliser ton numéro de téléphone ou ton adresse e-mail.</p>
+
 <form id="loginForm">
-<div class="form-group"><label for="identifiant">Téléphone ou adresse e-mail</label><input id="identifiant" name="identifiant" autocomplete="username" placeholder="+225... ou exemple@email.com" required></div>
-<div class="form-group"><label for="loginPassword">Mot de passe</label><input id="loginPassword" name="password" type="password" autocomplete="current-password" required></div>
+<div class="form-group">
+<label for="identifiant">Téléphone ou adresse e-mail</label>
+<input id="identifiant" name="identifiant" autocomplete="username" placeholder="+225... ou exemple@email.com" required>
+</div>
+
+<div class="form-group">
+<label for="loginPassword">Mot de passe</label>
+<input id="loginPassword" name="password" type="password" autocomplete="current-password" required>
+</div>
+
 <button class="action" type="submit">Continuer</button>
 </form>
+
 <div id="loginMessage" aria-live="polite"></div>
 <p class="note">La connexion réelle sera activée après la mise en place du serveur sécurisé.</p>
-<div class="actions"><button class="secondary" onclick="showPage('inscription')">Créer un compte</button></div>
+
+<div class="actions">
+<button class="secondary" onclick="showPage('inscription')">Créer un compte</button>
+</div>
 </div>
 </section>
 
-<section id="missions" class="panel"><h2>Mes missions</h2><div class="card">🎯 Découvrir ESCOVON<p>Explore la plateforme.</p></div><div class="card">📝 Compléter mon profil<p>Prépare ton espace membre.</p></div><p>Les missions sont des exemples. Aucune récompense réelle n'est activée.</p></section>
-<section id="videos" class="panel"><h2>Vidéos</h2><div class="card">🎬 Espace vidéos<p>Les vidéos partenaires seront affichées ici.</p></div></section>
-<section id="parrainage" class="panel"><h2>Parrainage</h2><div class="card">👥 Invite tes amis<p>Disponible après la création des comptes membres.</p></div></section>
-<section id="portefeuille" class="panel"><h2>Mon portefeuille</h2><div class="card">Solde de démonstration<div class="balance">0 FCFA</div><p>Les paiements et retraits réels ne sont pas encore connectés.</p></div></section>
-<section id="ventes" class="panel"><h2>ESCO VENTE</h2><div class="card"><h3>🛍️ Espace ventes</h3><p>Tu pourras présenter et vendre tes produits et services.</p><p>Les commandes et paiements réels ne sont pas encore activés.</p></div><div class="card"><h3>Que peux-tu vendre ?</h3><p>👕 Vêtements et chaussures</p><p>📱 Téléphones et accessoires</p><p>💄 Cosmétiques</p><p>💻 Matériel électronique</p><p>🏠 Articles pour la maison</p><p>🛠️ Services professionnels</p></div></section>
-<section id="formations" class="panel"><h2>ESCO FORMATION</h2><div class="card"><h3>📚 Espace formations</h3><p>Partage tes connaissances et développe tes compétences.</p><p>Tu pourras publier et vendre tes propres formations.</p><p>Les cours et achats réels ne sont pas encore activés.</p></div><div class="card"><h3>Nos formations</h3><p>🎥 Formations vidéo</p><p>📖 Cours et documents</p><p>🎓 Formations professionnelles</p><p>📝 Examens et questionnaires</p><p>🔴 Cours en direct</p></div></section>
+<section id="missions" class="panel">
+<h2>Mes missions</h2>
+<div class="card">🎯 Découvrir ESCOVON<p>Explore la plateforme.</p></div>
+<div class="card">📝 Compléter mon profil<p>Prépare ton espace membre.</p></div>
+<p>Les missions sont des exemples. Aucune récompense réelle n'est activée.</p>
+</section>
+
+<section id="videos" class="panel">
+<h2>Vidéos</h2>
+<div class="card">🎬 Espace vidéos<p>Les vidéos partenaires seront affichées ici.</p></div>
+</section>
+
+<section id="parrainage" class="panel">
+<h2>Parrainage</h2>
+<div class="card">👥 Invite tes amis<p>Disponible après la création des comptes membres.</p></div>
+</section>
+
+<section id="portefeuille" class="panel">
+<h2>Mon portefeuille</h2>
+<div class="card">
+<p>Solde de démonstration</p>
+<div class="balance">0 FCFA</div>
+<p>Ma commission : <strong class="commission">0 FCFA</strong></p>
+<p>Les paiements et retraits réels ne sont pas encore connectés.</p>
+</div>
+</section>
+
+<section id="ventes" class="panel">
+<h2>ESCO VENTE</h2>
+<div class="card">
+<h3>🛍️ Espace ventes</h3>
+<p>Tu pourras présenter et vendre tes produits et services.</p>
+<p>Les commandes et paiements réels ne sont pas encore activés.</p>
+</div>
+<div class="card">
+<h3>Que peux-tu vendre ?</h3>
+<p>👕 Vêtements et chaussures</p>
+<p>📱 Téléphones et accessoires</p>
+<p>💄 Cosmétiques</p>
+<p>💻 Matériel électronique</p>
+<p>🏠 Articles pour la maison</p>
+<p>🛠️ Services professionnels</p>
+</div>
+</section>
+
+<section id="formations" class="panel">
+<h2>ESCO FORMATION</h2>
+<div class="card">
+<h3>📚 Espace formations</h3>
+<p>Partage tes connaissances et développe tes compétences.</p>
+<p>Tu pourras publier et vendre tes propres formations.</p>
+<p>Les cours et achats réels ne sont pas encore activés.</p>
+</div>
+<div class="card">
+<h3>Nos formations</h3>
+<p>🎥 Formations vidéo</p>
+<p>📖 Cours et documents</p>
+<p>🎓 Formations professionnelles</p>
+<p>📝 Examens et questionnaires</p>
+<p>🔴 Cours en direct</p>
+</div>
+</section>
+
 </main>
+
 <nav>
 <button class="active" data-page="accueil"><span>🏠</span>Accueil</button>
 <button data-page="missions"><span>🎯</span>Missions</button>
@@ -113,41 +232,62 @@ input{width:100%;padding:13px;border:1px solid #cbd8ce;border-radius:9px;font-si
 <button data-page="ventes"><span>🛍️</span>Ventes</button>
 <button data-page="formations"><span>📚</span>Formations</button>
 </nav>
-<script>
-function showPage(page){
- document.querySelectorAll(".panel").forEach(p=>p.classList.remove("active"));
- document.querySelectorAll("nav button").forEach(b=>b.classList.remove("active"));
- const target=document.getElementById(page);
- if(target) target.classList.add("active");
- const navButton=document.querySelector('nav button[data-page="'+page+'"]');
- if(navButton) navButton.classList.add("active");
- window.scrollTo(0,0);
-}
-document.querySelectorAll("nav button").forEach(btn=>btn.addEventListener("click",()=>showPage(btn.dataset.page)));
 
-document.getElementById("registerForm").addEventListener("submit",function(e){
- e.preventDefault();
- const pass=document.getElementById("motdepasse").value;
- const confirm=document.getElementById("confirmation").value;
- const box=document.getElementById("registerMessage");
- if(pass!==confirm){
-  box.className="notice error";
-  box.textContent="Les deux mots de passe ne correspondent pas. Vérifie et réessaie.";
-  return;
- }
- box.className="notice";
- box.textContent="Formulaire vérifié ! Ceci est une démonstration : aucun compte n'a été créé et aucune information n'a été envoyée. La vérification par SMS et e-mail sera ajoutée avec le serveur sécurisé.";
- this.reset();
+<script>
+function showPage(page) {
+  document.querySelectorAll(".panel").forEach(function(panel) {
+    panel.classList.remove("active");
+  });
+
+  document.querySelectorAll("nav button").forEach(function(button) {
+    button.classList.remove("active");
+  });
+
+  const target = document.getElementById(page);
+  if (target) target.classList.add("active");
+
+  const navButton = document.querySelector('nav button[data-page="' + page + '"]');
+  if (navButton) navButton.classList.add("active");
+
+  window.scrollTo(0, 0);
+}
+
+document.querySelectorAll("nav button").forEach(function(button) {
+  button.addEventListener("click", function() {
+    showPage(button.dataset.page);
+  });
 });
-document.getElementById("loginForm").addEventListener("submit",function(e){
- e.preventDefault();
- const box=document.getElementById("loginMessage");
- box.className="notice";
- box.textContent="La page de connexion est prête en démonstration, mais aucun compte réel ne peut encore se connecter. Le serveur sécurisé doit d'abord être installé.";
+
+document.getElementById("registerForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const password = document.getElementById("motdepasse").value;
+  const confirmation = document.getElementById("confirmation").value;
+  const box = document.getElementById("registerMessage");
+
+  if (password !== confirmation) {
+    box.className = "notice error";
+    box.textContent = "Les deux mots de passe ne correspondent pas. Vérifie et réessaie.";
+    return;
+  }
+
+  box.className = "notice";
+  box.textContent = "Formulaire vérifié ! Ceci est une démonstration : aucun compte n'a été créé et aucune information n'a été envoyée.";
+  this.reset();
+});
+
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const box = document.getElementById("loginMessage");
+  box.className = "notice";
+  box.textContent = "La connexion réelle n'est pas encore activée. Le serveur sécurisé doit d'abord être configuré.";
 });
 </script>
+
 </body>
 </html>
+
 
 
 
